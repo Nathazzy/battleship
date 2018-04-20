@@ -1,4 +1,4 @@
-package com.matritellabs.utama.helper;
+package main.java.com.matritellabs.utama.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
