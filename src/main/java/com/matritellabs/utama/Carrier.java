@@ -1,8 +1,12 @@
 package main.java.com.matritellabs.utama;
 
 public class Carrier extends Battleships {
-    public Carrier(int shipLength, boolean placed) {
-        super(shipLength, placed);
+
+    public Carrier() {
+        representation = "C5";
+        shipLength = 5;
+        placed = false;
+
     }
 
     @Override
