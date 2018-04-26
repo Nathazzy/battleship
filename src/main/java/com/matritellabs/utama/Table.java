@@ -1,6 +1,11 @@
 package main.java.com.matritellabs.utama;
 
 public abstract class Table {
+    public static void main(String[] args) {
+        ScoreTable scoreT = new ScoreTable();
+        scoreT.printoutTable();
+    }
+
     public String[][] table = new String[10][10];
 
     /////Koordináta fordító!!!/////
@@ -23,12 +28,15 @@ public abstract class Table {
     public void printoutTable(){
         System.out.println(this.getClass().getSimpleName());
         System.out.println();
-        for(int count = 0; count < 10; count ++){
-                for(int count2 = 0; count2 < 10; count ++){
+        for(int count = 0; count < 10; count++){
+                for(int count2 = 0; count2 < 10; count2++){
                     System.out.print(table[count][count2] + " ");
                 }
             System.out.println();
             }
         }
+
+
+
     }
 
