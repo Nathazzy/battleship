@@ -1,61 +1,51 @@
 package main.java.com.matritellabs.utama;
 
-import com.sun.javafx.scene.control.TableColumnSortTypeWrapper;
-import main.java.com.matritellabs.utama.helper.LineByLineReader;
-
 public class Player {
 
     public String nickname;
     public ScoreTable keepScoreTable = new ScoreTable();
-    public BattleShipTable battleShipTable = new BattleShipTable();
+    public BattleshipTable battleshipTable = new BattleshipTable();
 
     public Player(String nickname){
         this.nickname = nickname;
     }
 
     public boolean shoot(int vertical, int horizontal){
-        if (BattleShipTable.table[vertical][horizontal]!="H"&&BattleShipTable.table[vertical][horizontal]!="X"){
-            if (BattleShipTable.table[vertical][horizontal]=="O"){
-                BattleShipTable.table[vertical][horizontal]!="X";
+        if (battleshipTable.table[vertical][horizontal]!="H"&& battleshipTable.table[vertical][horizontal]!="X"){
+            if (battleshipTable.table[vertical][horizontal]=="O"){
+                battleshipTable.table[vertical][horizontal]="X";
+                keepScoreTable.table[vertical][horizontal]="X";
                 return true;
             } else {
-                BattleShipTable.table[vertical][horizontal]="H";
+                battleshipTable.table[vertical][horizontal]="H";
+                keepScoreTable.table[vertical][horizontal]="H";
                 return true;
             }
         } else { return false; }
     }
 
     public void battleshipPlace(int vertical, int horizontal, String direction, Battleships battleship){
-
-    }
-
-
-
-    public int[] coordinateInterpreter(String coordinate){
-        int[] returnArray = new int[2];
-        char[] charArray = coordinate.toCharArray();
-        for (int i = 0; i<charArray.length; i++){
-            if (charArray[0]>=65&&charArray[0]<=74){
-                returnArray[0]=charArray[0]-65;
+            if (direction.equals("up")) {
+                for (int i = 0; i < battleship.shipLength; i++) {
+                    battleshipTable.table[vertical-i][horizontal]=battleship.representation;
+                }
             }
-            if (charArray[1]>=48&&charArray[1]<=57){
-                returnArray[1]=charArray[1]-49;
+            else if (direction.equals("down")) {
+                for (int i = 0; i < battleship.shipLength; i++) {
+                    battleshipTable.table[vertical + i][horizontal] = battleship.representation;
+                }
             }
-        }
-        return returnArray;
+            else if (direction.equals("left")) {
+                for (int i = 0; i < battleship.shipLength; i++) {
+                    battleshipTable.table[vertical][horizontal - i] = battleship.representation;
+                }
+            } else if (direction.equals("right")) {
+                for (int i = 0; i < battleship.shipLength; i++) {
+                    battleshipTable.table[vertical][horizontal+i] = battleship.representation;
+                }
+            }
+            battleship.placed=true;
     }
-
-
-
-//    battleshipPlace(String hovateszed,String merreteszed, Battleship ahajó){
-//        if (this.placeable(String hovateszed,String merreteszed, Battleship ahajó)==true)
-//            leteszi
-//        else
-//            System.out.println("Cant put that ship there");
-//        System.out.println("Write your "+ahajó+"'s coordinate and direction");
-//        player1.battleshipPlace(LineByLineReader,LineByLineReader,cruiser);
-//    }
-
 
 }
 
