@@ -73,5 +73,45 @@ public class BattleshipTable extends Table {
         return gameEnded;
     }
 
+    public boolean placeable(int vertical, int horizontal, String direction, Battleships battleship) throws  NullPointerException {
+        boolean ifPlaceable = false;
+        if (direction.equals("up")) {
+            for (int i = 0; i < battleship.shipLength; i++) {
+                if (!this.table[vertical-i][horizontal].equals("O")) {
+                    return false;
+                } else {
+                    ifPlaceable = true;
+                }
+            }
+        }
+        else if (direction.equals("down")) {
+            for (int i = 0; i < battleship.shipLength; i++) {
+                if (!this.table[vertical-i][horizontal].equals("O")) {
+                    return false;
+                } else {
+                    ifPlaceable = true;
+                }
+            }
+        }
+        else if (direction.equals("left")) {
+            for (int i = 0; i < battleship.shipLength; i++) {
+                if (!this.table[vertical-i][horizontal].equals("O")) {
+                    return false;
+                } else {
+                    ifPlaceable = true;
+                }
+            }
+        } else if (direction.equals("right")) {
+            for (int i = 0; i < battleship.shipLength; i++) {
+                if (!this.table[vertical-i][horizontal].equals("O")) {
+                    return false;
+                } else {
+                    ifPlaceable = true;
+                }
+            }
+        }
+
+        return ifPlaceable;
+    }
 
 }
