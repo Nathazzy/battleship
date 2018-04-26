@@ -6,6 +6,7 @@ public class Game {
 
     public static void main (String[] args) {
 
+
         ScoreTable myScore = new ScoreTable();
         BattleshipTable toPlay = new BattleshipTable();
 
@@ -16,8 +17,10 @@ public class Game {
 
         System.out.println("Please type first player's name: ");
 
+        //Setup player
         Player player1 = new Player(gamerNameFromKeyboard);
 
+        //Place ships
         boolean allplaced = false;
         while (!allplaced) {
             Battleships notplaced = player1.notplacedyet();
@@ -27,3 +30,4 @@ public class Game {
         }
     }
 }
+//BattleshipTable.placable
