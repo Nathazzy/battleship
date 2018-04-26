@@ -1,8 +1,12 @@
 package main.java.com.matritellabs.utama;
 
 public class Submarine extends Battleships {
-    public Submarine(int shipLength, boolean placed) {
-        super(shipLength, placed);
+
+    public Submarine() {
+        representation = "S3";
+        shipLength = 3;
+        placed = false;
+
     }
 
     @Override

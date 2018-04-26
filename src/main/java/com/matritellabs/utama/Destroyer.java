@@ -1,8 +1,12 @@
 package main.java.com.matritellabs.utama;
 
 public class Destroyer extends Battleships {
-    public Destroyer(int shipLength, boolean placed) {
-        super(shipLength, placed);
+
+    public Destroyer() {
+        representation = "D2";
+        shipLength = 2;
+        placed = false;
+
     }
 
     @Override

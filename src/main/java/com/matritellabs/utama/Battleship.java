@@ -2,9 +2,10 @@ package main.java.com.matritellabs.utama;
 
 public class Battleship extends Battleships {
 
-
-    public Battleship(int shipLength, boolean placed) {
-        super(shipLength, placed);
+    public Battleship() {
+        representation = "B4";
+        shipLength = 4;
+        placed = false;
 
     }
 
