@@ -46,6 +46,37 @@ public class Game {
         Player player2 = new Player(gamerNameFromKeyboard);
 
 
+        // Place ships player2
+        while (!allplaced) {
+            System.out.println("Please" + player2 + " place your Battleship coordinates: ");
+            temp = Table.coordinateInterpreter(coorToRead);
+            System.out.println("Please" + player2 + " place your Battleship direction : ");
+            player2.battleshipPlace(temp[0], temp[1], direction, new Battleship());
+            //player1.keepScoreTable
+
+            System.out.println("Please" + player2 + " place your Carrier coordinates: ");
+            temp = Table.coordinateInterpreter(coorToRead);
+            System.out.println("Please" + player2 + " place your Carrier direction : ");
+            player2.battleshipPlace(temp[0], temp[1], direction, new Carrier());
+
+            System.out.println("Please" + player2 + " place your Cruiser coordinates: ");
+            temp = Table.coordinateInterpreter(coorToRead);
+            System.out.println("Please" + player2 + " place your Cruiser direction : ");
+            player2.battleshipPlace(temp[0], temp[1], direction, new Cruiser());
+
+            System.out.println("Please" + player2 + " place your Destroyer coordinates: ");
+            temp = Table.coordinateInterpreter(coorToRead);
+            System.out.println("Please" + player2 + " place your Destroyer direction : ");
+            player2.battleshipPlace(temp[0], temp[1], direction, new Destroyer());
+
+            System.out.println("Please" + player2 + " place your Submarine coordinates: ");
+            temp = Table.coordinateInterpreter(coorToRead);
+            System.out.println("Please" + player2 + " place your Submarine direction : ");
+            player2.battleshipPlace(temp[0], temp[1], direction, new Submarine());
+
+            allplaced = true;
+        }
+
         //Show tables
 
         //Start the game, play
