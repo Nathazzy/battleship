@@ -1,10 +1,11 @@
 package main.java.com.matritellabs.utama;
+
 import main.java.com.matritellabs.utama.helper.*;
 
 
 public class Game {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         LineByLineReader toRead = new LineByLineReader();
         int[] temp = new int[2];
@@ -15,79 +16,45 @@ public class Game {
 
 
         //Place ships player1
-            Battleship boat1 = new Battleship();
-            while (!boat1.placed) {
-                System.out.println("Please " + player1.nickname + " place your "+ boat1.getClass().getSimpleName() +" coordinates: ");
+        Battleship boat1 = new Battleship();
+
+        while (!boat1.placed) {
+            try {
+                System.out.println("Please " + player1.nickname + " place your " + boat1.getClass().getSimpleName() + " coordinates: ");
                 temp = Table.coordinateInterpreter(toRead.readLineFromStdIn());
                 System.out.println("Please " + player1.nickname + " place your Battleship direction : ");
                 String tempPlace = toRead.readLineFromStdIn();
                 if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat1)) {
                     player1.battleshipPlace(temp[0], temp[1], tempPlace, boat1);
                 }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.err.println("Ooops");
             }
+        }
             player1.battleshipTable.printoutTable();
 
-            Carrier boat2 = new Carrier();
-            while (!boat1.placed) {
-            System.out.println("Please " + player1.nickname + " place your "+ boat1.getClass().getSimpleName() +" coordinates: ");
-            temp = Table.coordinateInterpreter(toRead.readLineFromStdIn());
-            System.out.println("Please " + player1.nickname + " place your Battleship direction : ");
-            String tempPlace = toRead.readLineFromStdIn();
-            if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat1)) {
-                player1.battleshipPlace(temp[0], temp[1], tempPlace, boat1);
-            }
+
+
+
+            //Setup player2
+            System.out.println("Please type first player's name: ");
+            Player player2 = new Player(gamerNameFromKeyboard);
+
+
+            // Place ships player2
+
+
+            //Show tables
+
+            //Start the game, play
+            System.out.print("Let's start a game!");
+
+            System.out.println("Please " + player1 + " shoot: ");
+
+            Table.coordinateInterpreter(toRead.readLineFromStdIn());
+
+
         }
-        player1.battleshipTable.printoutTable();
-
-
-
-        //Setup player2
-        System.out.println("Please type first player's name: ");
-        Player player2 = new Player(gamerNameFromKeyboard);
-
-
-        // Place ships player2
-        while (!allplaced) {
-            System.out.println("Please" + player2 + " place your Battleship coordinates: ");
-            temp = Table.coordinateInterpreter(coorToRead);
-            System.out.println("Please" + player2 + " place your Battleship direction : ");
-            player2.battleshipPlace(temp[0], temp[1], direction, new Battleship());
-            //player1.keepScoreTable
-
-            System.out.println("Please" + player2 + " place your Carrier coordinates: ");
-            temp = Table.coordinateInterpreter(coorToRead);
-            System.out.println("Please" + player2 + " place your Carrier direction : ");
-            player2.battleshipPlace(temp[0], temp[1], direction, new Carrier());
-
-            System.out.println("Please" + player2 + " place your Cruiser coordinates: ");
-            temp = Table.coordinateInterpreter(coorToRead);
-            System.out.println("Please" + player2 + " place your Cruiser direction : ");
-            player2.battleshipPlace(temp[0], temp[1], direction, new Cruiser());
-
-            System.out.println("Please" + player2 + " place your Destroyer coordinates: ");
-            temp = Table.coordinateInterpreter(coorToRead);
-            System.out.println("Please" + player2 + " place your Destroyer direction : ");
-            player2.battleshipPlace(temp[0], temp[1], direction, new Destroyer());
-
-            System.out.println("Please" + player2 + " place your Submarine coordinates: ");
-            temp = Table.coordinateInterpreter(coorToRead);
-            System.out.println("Please" + player2 + " place your Submarine direction : ");
-            player2.battleshipPlace(temp[0], temp[1], direction, new Submarine());
-
-            allplaced = true;
-        }
-
-        //Show tables
-
-        //Start the game, play
-        System.out.print("Let's start a game!");
-
-        System.out.println("Please " + player1 + " shoot: ");
-
-        Table.coordinateInterpreter(toRead.readLineFromStdIn());
-
-
     }
 
-}
 //BattleshipTable.placable
