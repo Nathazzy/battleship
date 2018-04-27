@@ -7,7 +7,7 @@ public class Game {
     public static void main (String[] args) {
 
 
-        /*ScoreTable myScore = new ScoreTable();
+        ScoreTable myScore = new ScoreTable();
         BattleshipTable toPlay = new BattleshipTable();
 
         LineByLineReader toRead = new LineByLineReader();
@@ -27,7 +27,7 @@ public class Game {
             System.out.println("Write your " + notplaced + "'s coordinate and direction");
             player1.battleshipPlace(coorToRead, direction, shipToPlace);
             allplaced = player1.checkIfAllPlaced();
-        }*/
+        }
     }
 }
 //BattleshipTable.placable
