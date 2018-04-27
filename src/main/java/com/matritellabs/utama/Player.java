@@ -1,4 +1,4 @@
-/*package main.java.com.matritellabs.utama;
+package main.java.com.matritellabs.utama;
 
 public class Player {
 
@@ -48,5 +48,5 @@ public class Player {
     }
 
 }
-*/
+
 
