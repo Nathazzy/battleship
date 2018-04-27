@@ -10,14 +10,14 @@ public class Player {
         this.nickname = nickname;
     }
 
-    public boolean shoot(int vertical, int horizontal){
-        if (battleshipTable.table[vertical][horizontal]!="H"&& battleshipTable.table[vertical][horizontal]!="X"){
-            if (battleshipTable.table[vertical][horizontal]=="O"){
-                battleshipTable.table[vertical][horizontal]="X";
+    public boolean shoot(int vertical, int horizontal, Player enemy){
+        if (enemy.battleshipTable.table[vertical][horizontal]!="H"&& enemy.battleshipTable.table[vertical][horizontal]!="X"){
+            if (enemy.battleshipTable.table[vertical][horizontal]=="O"){
+                enemy.battleshipTable.table[vertical][horizontal]="X";
                 keepScoreTable.table[vertical][horizontal]="X";
                 return true;
             } else {
-                battleshipTable.table[vertical][horizontal]="H";
+                enemy.battleshipTable.table[vertical][horizontal]="H";
                 keepScoreTable.table[vertical][horizontal]="H";
                 return true;
             }
