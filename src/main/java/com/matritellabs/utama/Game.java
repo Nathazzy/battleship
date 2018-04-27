@@ -63,7 +63,7 @@ public class Game {
             temp = Table.coordinateInterpreter(coorToRead);
             System.out.println("Please" + player2 + " place your Battleship direction : ");
             player2.battleshipPlace(temp[0], temp[1], direction, new Battleship());
-            player1.keepScoreTable
+            //player1.keepScoreTable
 
             System.out.println("Please" + player2 + " place your Carrier coordinates: ");
             temp = Table.coordinateInterpreter(coorToRead);
