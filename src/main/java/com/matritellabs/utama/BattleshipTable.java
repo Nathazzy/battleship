@@ -42,7 +42,7 @@ public class BattleshipTable extends Table {
                     battleship = true;
                 }
             }
-        }}*/
+        }
 
         if (!carrier) {
             System.out.println("Carrier sunken!");
@@ -91,7 +91,7 @@ public class BattleshipTable extends Table {
                     return false;
                 } else {
                     ifPlaceable = true;
-                }}*/
+                }
             }
         }
         else if (direction.equals("down")) {

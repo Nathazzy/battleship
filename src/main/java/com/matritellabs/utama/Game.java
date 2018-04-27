@@ -6,6 +6,7 @@ public class Game {
 
     public static void main (String[] args) {
 
+        System.out.println("Please type first player's name: ");
 
         ScoreTable myScoreTable = new ScoreTable();
         BattleshipTable toPlayTable = new BattleshipTable();
@@ -57,13 +58,13 @@ public class Game {
         System.out.println("Please type first player's name: ");
         Player player2 = new Player(gamerNameFromKeyboard);
 
-        //Place ships player2
+        // Place ships player2
         while (!allplaced) {
             System.out.println("Please" + player2 + " place your Battleship coordinates: ");
             temp = Table.coordinateInterpreter(coorToRead);
             System.out.println("Please" + player2 + " place your Battleship direction : ");
             player2.battleshipPlace(temp[0], temp[1], direction, new Battleship());
-            player1.keepScoreTable
+            //player1.keepScoreTable
 
             System.out.println("Please" + player2 + " place your Carrier coordinates: ");
             temp = Table.coordinateInterpreter(coorToRead);
