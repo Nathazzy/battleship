@@ -1,10 +1,6 @@
 package main.java.com.matritellabs.utama;
 
 public abstract class Table {
-    public static void main(String[] args) {
-        ScoreTable scoreT = new ScoreTable();
-        scoreT.printoutTable();
-    }
 
     public String[][] table = new String[10][10];
 
