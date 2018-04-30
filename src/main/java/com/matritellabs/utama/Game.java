@@ -17,108 +17,237 @@ public class Game {
         String gamerNameFromKeyboard = toRead.readLineFromStdIn();
         Player player1 = new Player(gamerNameFromKeyboard);
 
-        //Place ships player1
+        //Ships
         Battleship boat1 = new Battleship(); //BattleSip 4
         Carrier boat2 = new Carrier(); //Carrier 5
         Cruiser boat3 = new Cruiser(); //Cruiser 3
         Destroyer boat4 = new Destroyer(); //Destroyer 2
         Submarine boat5 = new Submarine(); // Submarine 3
 
+        Battleship enemyboat1 = new Battleship(); //BattleSip 4
+        Carrier enemyboat2 = new Carrier(); //Carrier 5
+        Cruiser enemyboat3 = new Cruiser(); //Cruiser 3
+        Destroyer enemyboat4 = new Destroyer(); //Destroyer 2
+        Submarine enemyboat5 = new Submarine(); // Submarine 3
+
         while (!boat1.placed) {
             try {
-                System.out.println("Please " + player1.nickname + " give your " + boat1.getClass().getSimpleName() + "'s coordinates: ");
+                System.out.println("Please " + player1.nickname + " set your " + boat1.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
-                System.out.println("Please " + player1.nickname + " give your " + boat1.getClass().getSimpleName() + "'s direction : ");
+                System.out.println("Please " + player1.nickname + " set your " + boat1.getClass().getSimpleName() + "'s direction : ");
                 String tempPlace = toRead.readLineFromStdIn();
-                if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat1)) {
-                    player1.battleshipPlace(temp[0], temp[1], tempPlace, boat1);
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat1)) {
+                        player1.battleshipPlace(temp[0], temp[1], tempPlace, boat1);
+                    } else {
+                        System.out.println("Here");
+                    }
                 } else {
-                    System.out.println("Here");
+                    System.out.println("Out of table, please try again!");
                 }
             } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
                 e.printStackTrace();
             }
             player1.battleshipTable.printoutTable();
         }
-        while (!boat2.placed) {
+       /* while (!boat2.placed) {
             try {
-                System.out.println("Please " + player1.nickname + " give your " + boat2.getClass().getSimpleName() + " coordinates: ");
-                //if (Table.coordinateInterpreter())
+                System.out.println("Please " + player1.nickname + " set your " + boat2.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
-
-                System.out.println("Please " + player1.nickname + " give your " + boat2.getClass().getSimpleName() + " direction : ");
+                System.out.println("Please " + player1.nickname + " set your " + boat2.getClass().getSimpleName() + "'s direction : ");
                 String tempPlace = toRead.readLineFromStdIn();
-                if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat2)) {
-                    player1.battleshipPlace(temp[0], temp[1], tempPlace, boat2);
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat2)) {
+                        player1.battleshipPlace(temp[0], temp[1], tempPlace, boat2);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
                 }
-            } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
                 e.printStackTrace();
             }
             player1.battleshipTable.printoutTable();
         }
         while (!boat3.placed) {
             try {
-                System.out.println("Please " + player1.nickname + " give your " + boat3.getClass().getSimpleName() + " coordinates: ");
-                //if (Table.coordinateInterpreter())
+                System.out.println("Please " + player1.nickname + " set your " + boat3.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
-
-                System.out.println("Please " + player1.nickname + " give your " + boat3.getClass().getSimpleName() + " direction : ");
+                System.out.println("Please " + player1.nickname + " set your " + boat3.getClass().getSimpleName() + "'s direction : ");
                 String tempPlace = toRead.readLineFromStdIn();
-                if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat3)) {
-                    player1.battleshipPlace(temp[0], temp[1], tempPlace, boat3);
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat3)) {
+                        player1.battleshipPlace(temp[0], temp[1], tempPlace, boat3);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
                 }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.err.println("Direction is not allowed!");
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
             }
             player1.battleshipTable.printoutTable();
         }
         while (!boat4.placed) {
             try {
-                System.out.println("Please " + player1.nickname + " give your " + boat4.getClass().getSimpleName() + " coordinates: ");
-                //if (Table.coordinateInterpreter())
+                System.out.println("Please " + player1.nickname + " set your " + boat4.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
-
-                System.out.println("Please " + player1.nickname + " give your " + boat4.getClass().getSimpleName() + " direction : ");
+                System.out.println("Please " + player1.nickname + " set your " + boat4.getClass().getSimpleName() + "'s direction : ");
                 String tempPlace = toRead.readLineFromStdIn();
-                if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat4)) {
-                    player1.battleshipPlace(temp[0], temp[1], tempPlace, boat4);
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat4)) {
+                        player1.battleshipPlace(temp[0], temp[1], tempPlace, boat4);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
                 }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.err.println("Direction is not allowed!");
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
             }
             player1.battleshipTable.printoutTable();
         }
         while (!boat5.placed) {
             try {
-                System.out.println("Please " + player1.nickname + " give your " + boat5.getClass().getSimpleName() + " coordinates: ");
-                //if (Table.coordinateInterpreter())
+                System.out.println("Please " + player1.nickname + " set your " + boat5.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
-
-                System.out.println("Please " + player1.nickname + " give your " + boat5.getClass().getSimpleName() + " direction : ");
+                System.out.println("Please " + player1.nickname + " set your " + boat5.getClass().getSimpleName() + "'s direction : ");
                 String tempPlace = toRead.readLineFromStdIn();
-                if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat5)) {
-                    player1.battleshipPlace(temp[0], temp[1], tempPlace, boat5);
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player1.battleshipTable.placeable(temp[0], temp[1], tempPlace, boat5)) {
+                        player1.battleshipPlace(temp[0], temp[1], tempPlace, boat5);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
                 }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.err.println("Direction is not allowed!");
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
             }
             player1.battleshipTable.printoutTable();
+        }*/
+
+        //Setup player2
+        System.out.println("Okay " + player1.nickname + " is ready, please type second player's name: ");
+        String gamer2NameFromKeyboard = toRead.readLineFromStdIn();
+        Player player2 = new Player(gamer2NameFromKeyboard);
+
+        while (!enemyboat4.placed) {
+            try {
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat4.getClass().getSimpleName() + "'s coordinates: ");
+                temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat4.getClass().getSimpleName() + "'s direction : ");
+                String tempPlace = toRead.readLineFromStdIn();
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player2.battleshipTable.placeable(temp[0], temp[1], tempPlace, enemyboat4)) {
+                        player2.battleshipPlace(temp[0], temp[1], tempPlace, enemyboat4);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
+                }
+            } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+                e.printStackTrace();
+            }
+            player2.battleshipTable.printoutTable();
         }
+        /*while (!enemyboat2.placed) {
+            try {
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat2.getClass().getSimpleName() + "'s coordinates: ");
+                temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat2.getClass().getSimpleName() + "'s direction : ");
+                String tempPlace = toRead.readLineFromStdIn();
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player2.battleshipTable.placeable(temp[0], temp[1], tempPlace, enemyboat2)) {
+                        player2.battleshipPlace(temp[0], temp[1], tempPlace, enemyboat2);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
+                }
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
+            }
+            player2.battleshipTable.printoutTable();
+        }
+        while (!enemyboat3.placed) {
+            try {
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat3.getClass().getSimpleName() + "'s coordinates: ");
+                temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat3.getClass().getSimpleName() + "'s direction : ");
+                String tempPlace = toRead.readLineFromStdIn();
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player2.battleshipTable.placeable(temp[0], temp[1], tempPlace, enemyboat3)) {
+                        player2.battleshipPlace(temp[0], temp[1], tempPlace, enemyboat3);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
+                }
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
+            }
+            player2.battleshipTable.printoutTable();
+        }
+        while (!enemyboat4.placed) {
+            try {
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat4.getClass().getSimpleName() + "'s coordinates: ");
+                temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat4.getClass().getSimpleName() + "'s direction : ");
+                String tempPlace = toRead.readLineFromStdIn();
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player2.battleshipTable.placeable(temp[0], temp[1], tempPlace, enemyboat4)) {
+                        player2.battleshipPlace(temp[0], temp[1], tempPlace, enemyboat4);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
+                }
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
+            }
+            player2.battleshipTable.printoutTable();
+        }
+        while (!enemyboat5.placed) {
+            try {
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat5.getClass().getSimpleName() + "'s coordinates: ");
+                temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+                System.out.println("Please " + player2.nickname + " set your " + enemyboat5.getClass().getSimpleName() + "'s direction : ");
+                String tempPlace = toRead.readLineFromStdIn();
+                if (temp[0] != 70 && temp[1] != 70) {
+                    if (player2.battleshipTable.placeable(temp[0], temp[1], tempPlace, enemyboat5)) {
+                        player2.battleshipPlace(temp[0], temp[1], tempPlace, enemyboat5);
+                    } else {
+                        System.out.println("Here");
+                    }
+                } else {
+                    System.out.println("Out of table, please try again!");
+                }
+            }catch (ArrayIndexOutOfBoundsException | NullPointerException e){
+                e.printStackTrace();
+            }
+            player2.battleshipTable.printoutTable();
+        }*/
 
-            //Setup player2
-            System.out.println("Please type second player's name: ");
-            Player player2 = new Player(gamerNameFromKeyboard);
-
-
-            // Place ships player2
-
-
-            //Show tables
-
-            //Start the game, play
-
-
+        //Start the game, play
+        while (!player1.battleshipTable.checkIfGameEnded() || !player2.battleshipTable.checkIfGameEnded()) {
+            System.out.println("Please " + player1.nickname + " shoot");
+            temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+            player1.shoot(temp[0], temp[1], player2);
+            //Shot.play();
+            player1.keepScoreTable.printoutTable();
+            if ()
+            player1.battleshipTable.alreadySunkenShips();
 
         }
     }
+}
 
