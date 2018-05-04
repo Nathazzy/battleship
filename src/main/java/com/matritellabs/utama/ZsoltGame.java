@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class Game {
+public class ZsoltGame {
 
     public static void main(String[] args) {
 
