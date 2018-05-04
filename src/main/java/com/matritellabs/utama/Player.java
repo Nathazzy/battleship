@@ -11,14 +11,16 @@ public class Player {
     }
 
     public boolean shoot(int vertical, int horizontal, Player enemy){
-        if (enemy.battleshipTable.table[vertical][horizontal]!="H"&& enemy.battleshipTable.table[vertical][horizontal]!="X"){
-            if (enemy.battleshipTable.table[vertical][horizontal]=="O"){
-                enemy.battleshipTable.table[vertical][horizontal]="X";
-                keepScoreTable.table[vertical][horizontal]="X";
+        if (enemy.battleshipTable.table[vertical][horizontal]!=" H"&& enemy.battleshipTable.table[vertical][horizontal]!=" X"){
+            if (enemy.battleshipTable.table[vertical][horizontal]==" O"){
+                enemy.battleshipTable.table[vertical][horizontal]=" X";
+                keepScoreTable.table[vertical][horizontal]=" X";
+                System.out.println("MISSED!");
                 return true;
             } else {
-                enemy.battleshipTable.table[vertical][horizontal]="H";
-                keepScoreTable.table[vertical][horizontal]="H";
+                enemy.battleshipTable.table[vertical][horizontal]=" H";
+                keepScoreTable.table[vertical][horizontal]=" H";
+                System.out.println("HIT!");
                 return true;
             }
         } else { return false; }
