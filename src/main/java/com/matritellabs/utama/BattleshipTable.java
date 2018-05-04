@@ -7,17 +7,10 @@ public class BattleshipTable extends Table {
 
         for(int count = 0; count < 10; count++){
             for(int count2 = 0; count2 < 10; count2++){
-                table[count][count2] = "O";
+                table[count][count2] = " O";
             }
         }
     }
-
-
-
-
-
-
-
 
 
     public void alreadySunkenShips() {
@@ -83,11 +76,11 @@ public class BattleshipTable extends Table {
         return gameEnded;
     }
 
-    public boolean placeable(int vertical, int horizontal, String direction, Battleships battleship) throws  NullPointerException {
+    public boolean placeable(int vertical, int horizontal, String direction, Battleships battleship) throws  NullPointerException, ArrayIndexOutOfBoundsException {
         boolean ifPlaceable = false;
         if (direction.equals("up")) {
             for (int i = 0; i < battleship.shipLength; i++) {
-                if (!this.table[vertical-i][horizontal].equals("O")) {
+                if (!this.table[vertical-i][horizontal].equals(" O")) {
                     return false;
                 } else {
                     ifPlaceable = true;
@@ -96,7 +89,7 @@ public class BattleshipTable extends Table {
         }
         else if (direction.equals("down")) {
             for (int i = 0; i < battleship.shipLength; i++) {
-                if (!this.table[vertical-i][horizontal].equals("O")) {
+                if (!this.table[vertical+i][horizontal].equals(" O")) {
                     return false;
                 } else {
                     ifPlaceable = true;
@@ -105,7 +98,7 @@ public class BattleshipTable extends Table {
         }
         else if (direction.equals("left")) {
             for (int i = 0; i < battleship.shipLength; i++) {
-                if (!this.table[vertical-i][horizontal].equals("O")) {
+                if (!this.table[vertical][horizontal-i].equals(" O")) {
                     return false;
                 } else {
                     ifPlaceable = true;
@@ -113,7 +106,7 @@ public class BattleshipTable extends Table {
             }
         } else if (direction.equals("right")) {
             for (int i = 0; i < battleship.shipLength; i++) {
-                if (!this.table[vertical-i][horizontal].equals("O")) {
+                if (!this.table[vertical][horizontal+i].equals(" O")) {
                     return false;
                 } else {
                     ifPlaceable = true;
