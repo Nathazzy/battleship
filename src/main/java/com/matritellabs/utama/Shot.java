@@ -23,7 +23,7 @@ public class Shot {
             // play the audio clip with the audioplayer class
             AudioPlayer.player.start(audioStream);
         }catch (  IOException e) {
-            System.err.println("Something wrong");
+            System.err.println("The shoot sound went wrong");
         }
     }
 }
