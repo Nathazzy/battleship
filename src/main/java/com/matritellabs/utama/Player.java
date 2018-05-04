@@ -16,11 +16,13 @@ public class Player {
                 enemy.battleshipTable.table[vertical][horizontal]=" X";
                 keepScoreTable.table[vertical][horizontal]=" X";
                 System.out.println("MISSED!");
+                Shot.play();
                 return true;
             } else {
                 enemy.battleshipTable.table[vertical][horizontal]=" H";
                 keepScoreTable.table[vertical][horizontal]=" H";
                 System.out.println("HIT!");
+                Shot.play();
                 return true;
             }
         } else { return false; }
