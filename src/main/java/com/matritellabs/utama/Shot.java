@@ -15,7 +15,7 @@ public class Shot {
     public static void play() {
         try {
             // open the sound file as a Java input stream
-            InputStream gongFile =  new FileInputStream("src\\ShotGun.wav");
+            InputStream gongFile =  new FileInputStream("src/ShotGun.wav");
 
             // create an audiostream from the inputstream
             AudioStream audioStream = new AudioStream(gongFile);

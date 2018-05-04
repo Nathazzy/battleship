@@ -13,6 +13,66 @@ public class BattleshipTable extends Table {
     }
 
 
+    public void sunkenShip(String shipRepresentation) {
+        boolean sunken = true;
+        if (shipRepresentation.equals("S3")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("S3")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Submarine sunken!");
+            }
+        } else if (shipRepresentation.equals("C5")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("C5")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Carrier sunken!");
+            }
+        } else if (shipRepresentation.equals("D2")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("D2")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Destroyer sunken!");
+            }
+        } else if (shipRepresentation.equals("C3")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("C3")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Cruiser sunken!");
+            }
+        } else if (shipRepresentation.equals("B4")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("B4")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Battleship sunken!");
+            }
+        }
+    }
+
     public void alreadySunkenShips() {
         boolean carrier = false;
         boolean cruiser = false;
