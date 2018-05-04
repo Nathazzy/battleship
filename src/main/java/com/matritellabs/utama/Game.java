@@ -13,7 +13,34 @@ public class Game {
         LineByLineReader toRead = new LineByLineReader();
         int[] temp = new int[2];
 
-        System.out.println("Please type first player's name: ");
+
+
+        Battleship boat1 = new Battleship(); //BattleSip 4
+       /* Carrier boat2 = new Carrier(); //Carrier 5
+        Cruiser boat3 = new Cruiser(); //Cruiser 3
+        Destroyer boat4 = new Destroyer(); //Destroyer 2
+        Submarine boat5 = new Submarine(); // Submarine 3*/
+
+
+        Player player1 = new Player("kati");
+        temp = player1.battleshipTable.coordinateInterpreter("G3");
+        player1.battleshipTable.placeable(temp[0], temp[1], "up", boat1);
+        player1.battleshipPlace(temp[0], temp[1], "up", boat1);
+        player1.battleshipTable.printoutTable();
+
+        /*player1.battleshipTable.placeable(0, 1, "down", boat2);
+        player1.battleshipTable.printoutTable();
+
+        player1.battleshipTable.placeable(0, 1, "left", boat3);
+        player1.battleshipTable.printoutTable();
+
+        player1.battleshipTable.placeable(0, 1, "right", boat4);
+        player1.battleshipTable.printoutTable();*/
+
+
+
+
+        /*System.out.println("Please type first player's name: ");
         String gamerNameFromKeyboard = toRead.readLineFromStdIn();
         Player player1 = new Player(gamerNameFromKeyboard);
 
@@ -50,7 +77,7 @@ public class Game {
             }
             player1.battleshipTable.printoutTable();
         }
-       /* while (!boat2.placed) {
+       while (!boat2.placed) {
             try {
                 System.out.println("Please " + player1.nickname + " set your " + boat2.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
@@ -129,7 +156,7 @@ public class Game {
                 e.printStackTrace();
             }
             player1.battleshipTable.printoutTable();
-        }*/
+        }
 
         //Setup player2
         System.out.println("Okay " + player1.nickname + " is ready, please type second player's name: ");
@@ -156,7 +183,7 @@ public class Game {
             }
             player2.battleshipTable.printoutTable();
         }
-        /*while (!enemyboat2.placed) {
+        while (!enemyboat2.placed) {
             try {
                 System.out.println("Please " + player2.nickname + " set your " + enemyboat2.getClass().getSimpleName() + "'s coordinates: ");
                 temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
@@ -235,7 +262,7 @@ public class Game {
                 e.printStackTrace();
             }
             player2.battleshipTable.printoutTable();
-        }*/
+        }
 
         //Start the game, play
         while (!player1.battleshipTable.checkIfGameEnded() || !player2.battleshipTable.checkIfGameEnded()) {
@@ -244,10 +271,10 @@ public class Game {
             player1.shoot(temp[0], temp[1], player2);
             //Shot.play();
             player1.keepScoreTable.printoutTable();
-            if ()
+
             player1.battleshipTable.alreadySunkenShips();
 
-        }
+        }*/
     }
 }
 
