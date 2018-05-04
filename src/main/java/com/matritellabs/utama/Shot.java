@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Shot {
+public abstract class Shot {
 
 
     public static void play() {

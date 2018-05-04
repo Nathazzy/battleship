@@ -12,6 +12,7 @@ public class Player {
         this.nickname = nickname;
     }
 
+    // SHOOTING METHOD
     public boolean shoot(int vertical, int horizontal, Player enemy){
         try {
             if (enemy.battleshipTable.table[vertical][horizontal] != " H" && enemy.battleshipTable.table[vertical][horizontal] != " X") {
@@ -68,6 +69,7 @@ public class Player {
         }
     }
 
+    // PLACING BATTLESHIP
     public void battleshipPlace(int vertical, int horizontal, String direction, Battleships battleship){
             if (direction.equals("up")) {
                 for (int i = 0; i < battleship.shipLength; i++) {
