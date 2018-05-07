@@ -12,7 +12,68 @@ public class BattleshipTable extends Table {
         }
     }
 
+    // SHOOT METHOD USES THIS METHOD TO PRINT OUT IF THE SHIP THAT HAS BEEN SHOT WAS SUNKEN OR NOT
+    public void sunkenShip(String shipRepresentation) {
+        boolean sunken = true;
+        if (shipRepresentation.equals("S3")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("S3")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Submarine sunken!");
+            }
+        } else if (shipRepresentation.equals("C5")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("C5")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Carrier sunken!");
+            }
+        } else if (shipRepresentation.equals("D2")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("D2")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Destroyer sunken!");
+            }
+        } else if (shipRepresentation.equals("C3")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("C3")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Cruiser sunken!");
+            }
+        } else if (shipRepresentation.equals("B4")) {
+            for (int i = 0; i <  table.length; i++) {
+                for (int j = 0; j < table[i].length ; j++) {
+                    if (table[i][j].equals("B4")){
+                        sunken = false;
+                    }
+                }
+            }
+            if (sunken) {
+                System.out.println("Battleship sunken!");
+            }
+        }
+    }
 
+    // PRINTS OUT THE ALREADY SUNKEN SHIPS
     public void alreadySunkenShips() {
         boolean carrier = false;
         boolean cruiser = false;
@@ -54,6 +115,7 @@ public class BattleshipTable extends Table {
         }
     }
 
+    // CHECK'S IF THERE IS ANY SHIPS LEFT ON THE ENEMY'S TABLE
     public boolean checkIfGameEnded(){
         boolean gameEnded = true;
         for (int i = 0; i < table.length&&gameEnded; i++) {
@@ -76,6 +138,7 @@ public class BattleshipTable extends Table {
         return gameEnded;
     }
 
+    // CHECK'S IF THE SHIP IS PLACEABLE THERE OR NOT
     public boolean placeable(int vertical, int horizontal, String direction, Battleships battleship) throws  NullPointerException, ArrayIndexOutOfBoundsException {
         boolean ifPlaceable = false;
         if (direction.equals("up")) {

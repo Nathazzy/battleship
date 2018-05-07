@@ -7,8 +7,8 @@ public abstract class Table {
     /////Koordináta fordító!!!/////
 
 
+    //TRANSLATES THE COORDINATE INCOME
     public static int[] coordinateInterpreter(String coordinate) {
-
 
         int[] returnArray = new int[2];
         boolean validCoordinate = false;
@@ -44,7 +44,7 @@ public abstract class Table {
         return returnArray;
     }
 
-
+    // TABLE REPRESENTATION
     public void printoutTable() {
         System.out.println(this.getClass().getSimpleName());
         System.out.println("");

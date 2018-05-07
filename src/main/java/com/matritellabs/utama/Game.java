@@ -1,16 +1,14 @@
 package main.java.com.matritellabs.utama;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import main.java.com.matritellabs.utama.helper.*;
 
 
 public class Game {
 
     public static void main(String[] args) {
-
         LineByLineReader toRead = new LineByLineReader();
         int[] coordinatesArray = new int[2];
-        // FIRST PLAYER NAME AND BATTLESHIP PLACE
+        // FIRST PLAYER NAME
         System.out.println("Please type first player's name: ");
         String gamerName = toRead.readLineFromStdIn();
         Player player1 = new Player(gamerName);
@@ -20,6 +18,7 @@ public class Game {
         Battleships submarine1 = new Submarine();
         Battleships destroyer1 = new Destroyer();
 
+        // FIRST PLAYER BATTLESHIP PLACEMENT
         while (!(cruiser1.placed && carrier1.placed && battleship1.placed && submarine1.placed && destroyer1.placed)) {
             try {
                 System.out.println();
@@ -125,7 +124,7 @@ public class Game {
             System.out.println();
         }
 
-        // Second PLAYER NAME AND BATTLESHIP PLACE
+        // SECOND PLAYER NAME
         System.out.println("Please type second player's name: ");
         gamerName = toRead.readLineFromStdIn();
         Player player2 = new Player(gamerName);
@@ -135,6 +134,7 @@ public class Game {
         Battleships submarine2 = new Submarine();
         Battleships destroyer2 = new Destroyer();
 
+        // SECOND PLAYER BATTLESHIP PLACE
         while (!(cruiser2.placed && carrier2.placed && battleship2.placed && submarine2.placed && destroyer2.placed)) {
             try {
                 System.out.println();
@@ -246,13 +246,16 @@ public class Game {
             System.out.println();
         }
 
+        // SHOOTING STARTS
         boolean gameEnded = false;
         String toShoot;
         while (!gameEnded) {
             System.out.println(player1.nickname + "'S TURN!");
             System.out.println("WRITE SOMETHING TO BEGIN!");
             toRead.readLineFromStdIn();
+            // FIRST PLAYER SHOOTS
             do {
+                try {
                 player1.keepScoreTable.printoutTable();
                 player1.battleshipTable.printoutTable();
                 player2.battleshipTable.alreadySunkenShips();
@@ -261,10 +264,13 @@ public class Game {
                 System.out.println("DON'T SHOOT TO THE SAME COORDINATE!");
                 toShoot = toRead.readLineFromStdIn();
                 coordinatesArray = Table.coordinateInterpreter(toShoot);
+                } catch (ArrayIndexOutOfBoundsException aioobex) {
+                    System.out.println("WRONG COORDINATES! TRY AGAIN");
+                    continue;
+                }
             } while (!player1.shoot(coordinatesArray[0], coordinatesArray[1], player2));
             gameEnded = player2.battleshipTable.checkIfGameEnded();
             if (!gameEnded) {
-                player2.battleshipTable.alreadySunkenShips();
                 System.out.println(player1.nickname + " WRITE SOMETHING TO END YOUR TURN!");
                 toRead.readLineFromStdIn();
                 for (int i = 0; i < 40; i++) {
@@ -276,7 +282,8 @@ public class Game {
                 System.out.println(player2.nickname + "'S TURN!");
                 System.out.println("WRITE SOMETHING TO BEGIN!");
                 toRead.readLineFromStdIn();
-                do {
+                // SECOND PLAYER SHOOTS
+                do { try {
                     player2.keepScoreTable.printoutTable();
                     player2.battleshipTable.printoutTable();
                     player1.battleshipTable.alreadySunkenShips();
@@ -285,13 +292,17 @@ public class Game {
                     System.out.println("DON'T SHOOT TO THE SAME COORDINATE!");
                     toShoot = toRead.readLineFromStdIn();
                     coordinatesArray = Table.coordinateInterpreter(toShoot);
+                } catch (ArrayIndexOutOfBoundsException aioobex) {
+                    System.out.println("WRONG COORDINATES! TRY AGAIN");
+                    continue;
+                }
                 } while (!player2.shoot(coordinatesArray[0], coordinatesArray[1], player1));
                 gameEnded = player1.battleshipTable.checkIfGameEnded();
                 if (gameEnded) {
+                    System.out.println();
                     System.out.println(player2.nickname + " WON!!!");
                     System.out.println("CONGRATULATIONS!!!");
                 } else {
-                    player1.battleshipTable.alreadySunkenShips();
                     System.out.println(player2.nickname + " WRITE SOMETHING TO END YOUR TURN!");
                     toRead.readLineFromStdIn();
                     for (int i = 0; i < 40; i++) {
@@ -299,6 +310,7 @@ public class Game {
                     }
                 }
             } else {
+                System.out.println();
                 System.out.println(player1.nickname + " WON!!!");
                 System.out.println("CONGRATULATIONS!!!");
             }
