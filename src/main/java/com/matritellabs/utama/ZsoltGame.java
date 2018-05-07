@@ -28,6 +28,8 @@ public class ZsoltGame {
 
 
         System.out.println("Please maximize your terminal window!");
+        System.out.println("You can place your ships by giving coordinates formn A1 to J10, and directions: up, down, left, right ");
+        System.out.println("You can shoot by typing a coordinate e.g: G4" );
         System.out.println("Please type first player's name: ");
         String gamerNameFromKeyboard = toRead.readLineFromStdIn();
         Player player1 = new Player(gamerNameFromKeyboard);
@@ -262,12 +264,16 @@ public class ZsoltGame {
 
         System.out.println("Let's start the game!");
         //Start the game, play
-        while (!player1.battleshipTable.checkIfGameEnded() || !player2.battleshipTable.checkIfGameEnded()) {
+        while (!player1.battleshipTable.checkIfGameEnded() && !player2.battleshipTable.checkIfGameEnded()) {
             player1.battleshipTable.printoutTable();
             player1.keepScoreTable.printoutTable();
             System.out.println("Please " + player1.nickname + " shoot");
-            temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
-            player1.shoot(temp[0], temp[1], player2);
+            try {
+                temp = BattleshipTable.coordinateInterpreter(toRead.readLineFromStdIn());
+                player1.shoot(temp[0], temp[1], player2);
+            }catch (IndexOutOfBoundsException e) {
+                System.out.println("Wrong type try again!");
+            }
             player1.keepScoreTable.printoutTable();
             player1.battleshipTable.alreadySunkenShips();
             if (player1.battleshipTable.checkIfGameEnded()) {
